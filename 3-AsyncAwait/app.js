@@ -23,10 +23,15 @@ let GetUserFriend = () => {
 }
 
 async function main() {
-    let a = await GetUser();
-    let b = await GetUserFriend();
-    console.log(a);
-    console.log(b);
+    try {
+        let a = await GetUser();
+        let b = await GetUserFriend();
+        console.log(a);
+        console.log(b);
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 main();
