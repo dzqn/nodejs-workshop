@@ -1,15 +1,14 @@
-html
-    head
-        title Deneme
+extend layout
+block content
+    - var okul= "Çukurova Ünv"
+    - var unvan= "Bilgisayar Müh"
+    div(style="background-color:yellow;padding:10px;")
+        | Merhaba Dünya 
+        br
+        | #{name} #{surname}
+        br 
+        =okul
+        br
+        =unvan
 
-    body
-        div
-            //- Header Kısmı
-            include header
-        div
-            | Merhaba Dünya 
-            br
-            | #{name} #{surname}
-        div
-            //- Footer Kısmı
-            include footer
+        
