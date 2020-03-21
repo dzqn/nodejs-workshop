@@ -4,7 +4,7 @@ const app = express();
 app.set('view engine','pug');
 
 app.get('/',(requset,response) => {
-    response.render("index");
+    response.render("index",{name:"Düzgün",surname:"Tutar"});
 });
 
 app.listen(3000,() => {

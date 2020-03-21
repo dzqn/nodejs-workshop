@@ -3,4 +3,13 @@ html
         title Deneme
 
     body
-        | Merhaba Dünya
+        div
+            //- Header Kısmı
+            include header
+        div
+            | Merhaba Dünya 
+            br
+            | #{name} #{surname}
+        div
+            //- Footer Kısmı
+            include footer
