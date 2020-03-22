@@ -10,4 +10,6 @@ module.exports= () => {
     mongoose.connection.on('error',() => {
         console.log('Db bağlantısı sırasında hata oluştu!!');
     });
+
+    mongoose.promise = global.Promise;
 }
