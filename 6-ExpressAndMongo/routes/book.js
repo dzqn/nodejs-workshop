@@ -7,7 +7,17 @@ const Book = require('../models/Book');
 router.get('/new', function (req, res, next) {
 
     const firstBook = new Book({
-        title: 'Kolera Günlerinde Aşk'
+        title: 'Kolera Günlerinde Aşk',
+        //published:false,
+        comments: [
+            {message:'Çok güzel'},
+            {message:'Fena Değil'}
+        ],
+        //date:Date(),
+        metaData:{
+            votes:15,
+            favs:99
+        }
     });
 
     firstBook.save((error, data) => {
