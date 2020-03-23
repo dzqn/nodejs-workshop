@@ -3,7 +3,7 @@ var router = express.Router();
 
 const Movie = require('../models/Movie');
 
-// Get All datas
+//getall 
 router.get('/', (req, res, next) => {
   Movie.find({}, (err, data) => {
     if (err)
@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
+//getbyid
 router.get('/:id', (req, res, next) => {
   Movie.findById(req.params.id, (err, data) => {
     //app.js altındaki error midleware e gider
@@ -23,7 +24,7 @@ router.get('/:id', (req, res, next) => {
   });
 })
 
-// Save Data
+//save
 router.post('/', (req, res, next) => {
   const { title, category, country, year, imdb_score } = req.body;
 
@@ -43,6 +44,7 @@ router.post('/', (req, res, next) => {
   })
 });
 
+//update
 router.put('/:id', (req, res, next) => {
   const promise = Movie.findByIdAndUpdate(
     req.params.id,
@@ -57,6 +59,18 @@ router.put('/:id', (req, res, next) => {
     next({ message: "Hatalı İşlem!" });
   })
 });
+
+//delete
+router.delete('/:id', (req, res, next) => {
+  const promise = Movie.findByIdAndRemove(req.params.id);
+  promise.then((data) => {
+    if (!data)
+      next({ message: "Kayıt bulunamadı!" });
+    res.json({ status: 200 });
+  }).catch(err => {
+    res.json(err);
+  })
+})
 
 
 module.exports = router;
