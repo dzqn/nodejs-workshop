@@ -44,7 +44,13 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-  const promise = Movie.findByIdAndUpdate(req.params.id, req.body);
+  const promise = Movie.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true // Güncellenen satanın en son halini döner
+    }
+  );
   promise.then(function (data) {
     res.json(data);
   }).catch(function (err) {
