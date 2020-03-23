@@ -37,14 +37,15 @@ router.get('/:id', (req, res, next) => {
 
 //save
 router.post('/', (req, res, next) => {
-  const { title, category, country, year, imdb_score } = req.body;
+  const { title, category, country, year, imdb_score, director_id } = req.body;
 
   const movie = new Movie({
     title: title,
     category: category,
     country: country,
     year: year,
-    imdb_score: imdb_score
+    imdb_score: imdb_score,
+    director_id: director_id
   });
 
   movie.save((err, data) => {
