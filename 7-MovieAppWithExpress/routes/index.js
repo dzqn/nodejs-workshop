@@ -24,7 +24,7 @@ router.post('/register', (req, res, nex) => {
       res.json(data);
     })
   });
-})
+});
 
 router.post('/authendicate', (request, response) => {
   const { username, password } = request.body;
@@ -63,6 +63,6 @@ router.post('/authendicate', (request, response) => {
       });
     }
   })
-})
+});
 
 module.exports = router;
