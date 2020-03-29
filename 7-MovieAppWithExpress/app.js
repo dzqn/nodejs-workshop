@@ -11,7 +11,12 @@ const directorRouter = require('./routes/director');
 
 const app = express();
 
+//DB
 const db = require('./helper/db')();
+
+//Config (Global bir değişken hazırlamış olduk)
+const config = require('./helper/config');
+app.set('api_secret_key',config.api_secret_key);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
